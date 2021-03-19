@@ -295,6 +295,9 @@ gsettings set org.gnome.desktop.peripherals.touchpad click-method areas
 gsettings set org.gnome.desktop.wm.preferences button-layout :minimize,maximize,close
 
 
+gsettings set org.gnome.desktop.background picture-uri https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg
+
+
 # dnf-automatic security upgrades
 # timer configuration: /etc/systemd/system/multi-user.target.wants/dnf-automatic.timer
 echo -n '[commands]
