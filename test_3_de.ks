@@ -248,6 +248,10 @@ ssss                     # Shamir's secret sharing scheme
 syncthing                # P2P Synchronisation (https://syncthing.net/downloads/)
 vulkan*                  # Vulkan
 # modem-manager-gui      # ModemManager GUI
+wine
+lutris
+steam
+spotify
 
 %end
 
@@ -275,6 +279,21 @@ dnf -y install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted 
 # dnf -y install nvidia-driver nvidia-settings
 # Signal Desktop as Flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.signal.Signal
+
+
+
+gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
+#Change Icon-Theme:
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+#Change Window-Theme:
+#gsettings set org.gnome.desktop.wm.preferences theme "CoolestThemeOnEarth"
+#tap to click
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+#prawy klik
+gsettings set org.gnome.desktop.peripherals.touchpad click-method areas
+#dodajemy przycuski minimalizacji oraz maksymalzacji
+gsettings set org.gnome.desktop.wm.preferences button-layout :minimize,maximize,close
+
 
 # dnf-automatic security upgrades
 # timer configuration: /etc/systemd/system/multi-user.target.wants/dnf-automatic.timer
