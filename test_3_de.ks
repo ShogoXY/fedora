@@ -22,7 +22,7 @@ graphical
 # Keyboard layouts
 keyboard --xlayouts='us (mac)','de (mac)'
 # System language
-lang de_DE.UTF-8
+lang en_US.UTF-8
 
 # Network information
 network  --bootproto=dhcp --device=enp3s0 --ipv6=auto --activate
