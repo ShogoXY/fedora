@@ -95,30 +95,13 @@ dnf -y sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 # dnf -y install nvidia-driver nvidia-settings
 # Signal Desktop as Flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.signal.Signal
+flatpak -y install spotify
+
 
 sudo wget --output-document=/home/$USER/.config/gconf/dconf.ini https://raw.githubusercontent.com/ShogoXY/kickstart_fedora/main/dconf.ini
 
 dconf load / < /home/$USER/.config/gconf/dconf.ini
-
-
-gnome-extension enable dash-to-dock@micxgx.gmail.com
-
-
-gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
-#Change Icon-Theme:
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-#Change Window-Theme:
-gsettings set org.gnome.desktop.wm.preferences theme "CoolestThemeOnEarth"
-#tap to click
-gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
-#prawy klik
-gsettings set org.gnome.desktop.peripherals.touchpad click-method areas
-#dodajemy przycuski minimalizacji oraz maksymalzacji
-gsettings set org.gnome.desktop.wm.preferences button-layout :minimize,maximize,close
-
 sudo wget --output-document=/usr/share/backgrounds/fedora-workstation/now2y.jpg https://i.pinimg.com/originals/3b/8a/d2/3b8ad2c7b1be2caf24321c852103598a.jpg
-
-gsettings set org.gnome.desktop.background picture-uri 'usr/share/backgrounds/fedora-workstation/now2y.jpg
 
 
 # dnf-automatic security upgrades
@@ -129,26 +112,11 @@ random_sleep = 0
 download_updates = yes
 apply_updates = yes
 
-[emitters]
-#emit_via = stdio
-
-[email]
-#email_from = dnf@localhost
-#email_to = root@localhost
-#email_host = localhost
-
-[command]
-
-[command_email]
-#email_from = dnf@localhost
-#email_to = root@localhost
 
 [base]
 debuglevel = 1' > /etc/dnf/automatic.conf;
 systemctl enable --now dnf-automatic.timer
 
-# For every user who wants to use Syncthing.
-# systemctl enable --now syncthing@USER.service
 %end
 
 # Reboot After Installation
