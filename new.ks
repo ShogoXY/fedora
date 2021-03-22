@@ -70,10 +70,11 @@ gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
 gnome-shell-extension-dash-to-dock          # Dash to Dock
 gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
 gnome-tweak-tool
-arc-dark-theme
+arc-theme
 papirus-icon-theme
 lutris
 steam
+wine
 
 
 %end
