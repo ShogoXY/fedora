@@ -14,26 +14,27 @@ repo --name=rpmfusion-nonfree-tainted --mirrorlist="https://mirrors.rpmfusion.or
 # Negativo17 NVIDIA/CUDA
 repo --name=negativo17 --baseurl="https://negativo17.org/repos/nvidia/fedora-33/x86_64/"
 # Secure Messenger
-repo --name=keybase --baseurl="http://prerelease.keybase.io/rpm/x86_64"
-repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/results/taw/element/fedora-33-x86_64/"
+#repo --name=keybase --baseurl="http://prerelease.keybase.io/rpm/x86_64"
+#repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/results/taw/element/fedora-33-x86_64/"
 
 # Use graphical install
 graphical
-# Keyboard layouts
-keyboard --xlayouts='us (mac)','de (mac)'
+############################# Keyboard layouts
+#keyboard --xlayouts='us (mac)','de (mac)'
 # System language
 lang en_US.UTF-8
 
 # Network information
-network  --bootproto=dhcp --device=enp3s0 --ipv6=auto --activate
-network  --hostname=fedora33
+#################network  --bootproto=dhcp --device=enp3s0 --ipv6=auto --activate
+#################network  --hostname=fedora33
 # X Window System configuration information
 # xconfig --defaultdesktop GNOME --startxonboot
 # System services
-services --enabled=chronyd,sshd
+#services --enabled=chronyd,sshd
 
 # System timezone
-timezone Europe/Berlin --isUtc --ntpservers=0.pool.ntp.org,1.pool.ntp.org,2.pool.ntp.org,3.pool.ntp.org
+##############################
+#timezone Europe/Berlin --isUtc --ntpservers=0.pool.ntp.org,1.pool.ntp.org,2.pool.ntp.org,3.pool.ntp.org
 
 # User configuration
 # user --groups=wheel --name=fedora --password=PASSWD --iscrypted --gecos="fedora"
@@ -49,7 +50,7 @@ timezone Europe/Berlin --isUtc --ntpservers=0.pool.ntp.org,1.pool.ntp.org,2.pool
 # SELinux is enabled, but only logs things that would be denied in enforcing mode.
 # selinux --permissive
 # No SELinux policy is loaded.
-selinux --disabled
+#selinux --disabled
 
 %packages
 @^workstation-product-environment
@@ -251,7 +252,7 @@ vulkan*                  # Vulkan
 wine
 lutris
 steam
-spotify
+#spotify
 
 %end
 
@@ -261,9 +262,9 @@ spotify
 
 %anaconda
 # --minquality does not seem to work
-pwpolicy root --minlen=10 --minquality=50 --strict --notempty --nochanges
-pwpolicy user --minlen=8  --minquality=30 --strict --notempty --nochanges
-pwpolicy luks --minlen=10 --minquality=50 --strict --notempty --nochanges
+#pwpolicy root --minlen=10 --minquality=50 --strict --notempty --nochanges
+#pwpolicy user --minlen=8  --minquality=30 --strict --notempty --nochanges
+#pwpolicy luks --minlen=10 --minquality=50 --strict --notempty --nochanges
 %end
 
 %post
@@ -307,18 +308,18 @@ download_updates = yes
 apply_updates = yes
 
 [emitters]
-emit_via = stdio
+#emit_via = stdio
 
 [email]
-email_from = dnf@localhost
-email_to = root@localhost
-email_host = localhost
+#email_from = dnf@localhost
+#email_to = root@localhost
+#email_host = localhost
 
 [command]
 
 [command_email]
-email_from = dnf@localhost
-email_to = root@localhost
+#email_from = dnf@localhost
+#email_to = root@localhost
 
 [base]
 debuglevel = 1' > /etc/dnf/automatic.conf;
