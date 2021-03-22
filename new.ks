@@ -72,9 +72,6 @@ gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
 
 %end
 
-%addon com_redhat_kdump --disable --reserve-mb='128'
-
-%end
 
 %anaconda
 # --minquality does not seem to work
