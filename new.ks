@@ -69,6 +69,12 @@ gnome-shell-extension-system-monitor-applet # A Gnome shell system monitor exten
 gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
 gnome-shell-extension-dash-to-dock          # Dash to Dock
 gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
+gnome-tweak-tool
+arc-dark-theme
+papirus-icon-theme
+lutris
+steam
+
 
 %end
 
@@ -82,13 +88,8 @@ gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
 
 %post
 # Repositories
-dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm https://prerelease.keybase.io/keybase_amd64.rpm
-# Element
-dnf -y copr enable taw/element
-# negativo17 nvidia repository
-dnf config-manager --add-repo=https://negativo17.org/repos/fedora-nvidia.repo
+dnf -y sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 # Packages
-dnf -y install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted --refresh
 # NVIDIA
 # dnf -y install nvidia-driver nvidia-settings
 # Signal Desktop as Flatpak
@@ -96,11 +97,11 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 
 
-#gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
+gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
 #Change Icon-Theme:
-#gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 #Change Window-Theme:
-#gsettings set org.gnome.desktop.wm.preferences theme "CoolestThemeOnEarth"
+gsettings set org.gnome.desktop.wm.preferences theme "CoolestThemeOnEarth"
 #tap to click
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 #prawy klik
@@ -108,8 +109,9 @@ gsettings set org.gnome.desktop.peripherals.touchpad click-method areas
 #dodajemy przycuski minimalizacji oraz maksymalzacji
 gsettings set org.gnome.desktop.wm.preferences button-layout :minimize,maximize,close
 
+sudo wget --output-document=/usr/share/backgrounds/fedora-workstation/now2y.jpg https://i.pinimg.com/originals/3b/8a/d2/3b8ad2c7b1be2caf24321c852103598a.jpg
 
-gsettings set org.gnome.desktop.background picture-uri https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg
+gsettings set org.gnome.desktop.background picture-uri 'usr/share/backgrounds/fedora-workstation/now2y.jpg
 
 
 # dnf-automatic security upgrades
