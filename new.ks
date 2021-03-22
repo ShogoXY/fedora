@@ -19,8 +19,48 @@ repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/result
 
 # Use graphical install
 graphical
+############################# Keyboard layouts
+#keyboard --xlayouts='us (mac)','de (mac)'
+############################# System language
+#lang en_US.UTF-8
 
+# Network information
+#################network  --bootproto=dhcp --device=enp3s0 --ipv6=auto --activate
+#################network  --hostname=fedora33
+# X Window System configuration information
+# xconfig --defaultdesktop GNOME --startxonboot
+# System services
+#services --enabled=chronyd,sshd
 
+# System timezone
+##############################
+#timezone Europe/Berlin --isUtc --ntpservers=0.pool.ntp.org,1.pool.ntp.org,2.pool.ntp.org,3.pool.ntp.org
+
+# User configuration
+# user --groups=wheel --name=fedora --password=PASSWD --iscrypted --gecos="fedora"
+# Root password
+# ``python -c 'import crypt; print(crypt.crypt("My Password", "$6$My Salt"))'``
+# rootpw --iscrypted PASSWD
+
+# SSH Keys (Ed25519 / RSA 4096)
+# sshkey --username fedora "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2uNvCh4aHbk8v/Fty9inxQLpda4z7Vb16Dbn24zTfm"
+# sshkey --username root "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2uNvCh4aHbk8v/Fty9inxQLpda4z7Vb16Dbn24zTfm"
+# sshpw --username root --sshkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2uNvCh4aHbk8v/Fty9inxQLpda4z7Vb16Dbn24zTfm" "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDrjDqSVdz/vearombs3vomFY+l3VwAesd2BBfQZK51BekjZJlu4Ac6I2w0adf+vXBHMJULluG0Xh21eL0PF2vWkZ6i4yXGcXd/Zdb40HWsFeryKlaWYaLdnjbXKlu9TYkLtNO6le7Oy+BepydzfkPCjepaeHtm/zi/5SxZ+sHfEzCZclf8aYH1yEMGJIMJqJ96rLxfFBmH1RZThq2F7aIObA/sNySrcDZFFOv9i7Kqohqz8kzJwiARCpThBa+jj/3qWd1VyTRk7Sgk0bcgRSZ/zbhkCYGQ5UUr8CxEggvZGvfL7GD4Fb8gUOo4kZe2r5Y6L568BPuGwdfFtN95MJ"
+
+# SELinux is enabled, but only logs things that would be denied in enforcing mode.
+# selinux --permissive
+# No SELinux policy is loaded.
+#selinux --disabled
+
+%packages
+@^workstation-product-environment
+@admin-tools
+@development-tools
+@editors
+@libreoffice
+@office
+@sound-and-video
+@system-tools
 
 ### Gnome Shell Extensions
 gnome-extensions-app                        # Manage GNOME Shell extensions
@@ -29,7 +69,6 @@ gnome-shell-extension-system-monitor-applet # A Gnome shell system monitor exten
 gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
 gnome-shell-extension-dash-to-dock          # Dash to Dock
 gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
-
 
 %end
 
@@ -60,9 +99,9 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 
 
-gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
+#gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
 #Change Icon-Theme:
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+#gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 #Change Window-Theme:
 #gsettings set org.gnome.desktop.wm.preferences theme "CoolestThemeOnEarth"
 #tap to click
