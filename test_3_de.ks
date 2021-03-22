@@ -14,15 +14,15 @@ repo --name=rpmfusion-nonfree-tainted --mirrorlist="https://mirrors.rpmfusion.or
 # Negativo17 NVIDIA/CUDA
 repo --name=negativo17 --baseurl="https://negativo17.org/repos/nvidia/fedora-33/x86_64/"
 # Secure Messenger
-#repo --name=keybase --baseurl="http://prerelease.keybase.io/rpm/x86_64"
-#repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/results/taw/element/fedora-33-x86_64/"
+repo --name=keybase --baseurl="http://prerelease.keybase.io/rpm/x86_64"
+repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/results/taw/element/fedora-33-x86_64/"
 
 # Use graphical install
 graphical
 ############################# Keyboard layouts
 #keyboard --xlayouts='us (mac)','de (mac)'
-# System language
-lang en_US.UTF-8
+############################# System language
+#lang en_US.UTF-8
 
 # Network information
 #################network  --bootproto=dhcp --device=enp3s0 --ipv6=auto --activate
