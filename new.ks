@@ -20,21 +20,21 @@ repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/result
 # Use graphical install
 graphical
 ############################# Keyboard layouts
-#keyboard --xlayouts='us (mac)','de (mac)'
+keyboard --xlayouts='pl'
 ############################# System language
-#lang en_US.UTF-8
+lang pl_PL.UTF-8
 
 # Network information
 #################network  --bootproto=dhcp --device=enp3s0 --ipv6=auto --activate
 #################network  --hostname=fedora33
 # X Window System configuration information
-# xconfig --defaultdesktop GNOME --startxonboot
+xconfig --defaultdesktop GNOME --startxonboot
 # System services
 #services --enabled=chronyd,sshd
 
 # System timezone
 ##############################
-#timezone Europe/Berlin --isUtc --ntpservers=0.pool.ntp.org,1.pool.ntp.org,2.pool.ntp.org,3.pool.ntp.org
+timezone Europe/Warsaw
 
 # User configuration
 # user --groups=wheel --name=fedora --password=PASSWD --iscrypted --gecos="fedora"
@@ -96,6 +96,12 @@ dnf -y sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 # Signal Desktop as Flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.signal.Signal
 
+sudo wget --output-document=/home/$USER/.config/gconf/dconf.ini https://raw.githubusercontent.com/ShogoXY/kickstart_fedora/main/dconf.ini
+
+dconf load / < /home/$USER/.config/gconf/dconf.ini
+
+
+gnome-extension enable dash-to-dock@micxgx.gmail.com
 
 
 gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"
