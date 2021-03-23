@@ -114,6 +114,8 @@ sudo wget --output-document=/usr/share/backgrounds/fedora-workstation/now2y.jpg 
 sudo wget --output-document=/home/$USER/after-install.sh https://raw.githubusercontent.com/ShogoXY/kickstart_fedora/main/after-install.sh
 chmod +x /home/$USER/after-install.sh
 
+sudo systemctl disable NetworkManager-wait-online.service
+
 #######################################################################
 
 # Packages
