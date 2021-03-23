@@ -12,7 +12,7 @@ repo --name=rpmfusion-nonfree --mirrorlist="https://mirrors.rpmfusion.org/mirror
 repo --name=rpmfusion-nonfree-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-released-33&arch=x86_64" --cost=0
 repo --name=rpmfusion-nonfree-tainted --mirrorlist="https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-tainted-33&arch=x86_64"
 # Negativo17 NVIDIA/CUDA
-repo --name=negativo17 --baseurl="https://negativo17.org/repos/nvidia/fedora-33/x86_64/"
+#repo --name=negativo17 --baseurl="https://negativo17.org/repos/nvidia/fedora-33/x86_64/"
 # Secure Messenger
 repo --name=keybase --baseurl="http://prerelease.keybase.io/rpm/x86_64"
 repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/results/taw/element/fedora-33-x86_64/"
@@ -28,7 +28,7 @@ lang pl_PL.UTF-8
 #################network  --bootproto=dhcp --device=enp3s0 --ipv6=auto --activate
 #################network  --hostname=fedora33
 # X Window System configuration information
-xconfig --defaultdesktop GNOME --startxonboot
+#xconfig --defaultdesktop GNOME --startxonboot
 # System services
 #services --enabled=chronyd,sshd
 
@@ -53,28 +53,30 @@ timezone Europe/Warsaw
 #selinux --disabled
 
 %packages
-@^workstation-product-environment
-@admin-tools
-@development-tools
-@editors
+#@^workstation-product-environment
+#@admin-tools
+#@development-tools
+#@editors
 @libreoffice
-@office
-@sound-and-video
-@system-tools
+#@office
+#@sound-and-video
+#@system-tools
 
 ### Gnome Shell Extensions
-gnome-extensions-app                        # Manage GNOME Shell extensions
-gnome-shell-extension-background-logo       # Background logo extension for GNOME Shell
-gnome-shell-extension-system-monitor-applet # A Gnome shell system monitor extension
-gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
-gnome-shell-extension-dash-to-dock          # Dash to Dock
-gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
-gnome-tweak-tool
+#gnome-extensions-app                        # Manage GNOME Shell extensions
+#gnome-shell-extension-background-logo       # Background logo extension for GNOME Shell
+#gnome-shell-extension-system-monitor-applet # A Gnome shell system monitor extension
+#gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
+#gnome-shell-extension-dash-to-dock          # Dash to Dock
+#gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
+#gnome-tweak-tool
 arc-theme
 papirus-icon-theme
 lutris
 steam
 wine
+vlc
+ffmpeg
 
 
 %end
@@ -95,13 +97,12 @@ dnf -y sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 # dnf -y install nvidia-driver nvidia-settings
 # Signal Desktop as Flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.signal.Signal
-flatpak -y install spotify
+#flatpak -y install spotify
 
-
+sudo wget --output-document=/usr/share/backgrounds/fedora-workstation/now2y.jpg https://i.pinimg.com/originals/3b/8a/d2/3b8ad2c7b1be2caf24321c852103598a.jpg
 sudo wget --output-document=/home/$USER/.config/gconf/dconf.ini https://raw.githubusercontent.com/ShogoXY/kickstart_fedora/main/dconf.ini
 
 dconf load / < /home/$USER/.config/gconf/dconf.ini
-sudo wget --output-document=/usr/share/backgrounds/fedora-workstation/now2y.jpg https://i.pinimg.com/originals/3b/8a/d2/3b8ad2c7b1be2caf24321c852103598a.jpg
 
 
 # dnf-automatic security upgrades
