@@ -53,40 +53,49 @@ timezone Europe/Warsaw
 #selinux --disabled
 
 %packages
+
+
+@"Fedora Workstation"
+################################################################
 #@^workstation-product-environment
 #@admin-tools
 #@development-tools
 #@editors
-@libreoffice
+#@libreoffice
 #@office
 #@sound-and-video
 #@system-tools
 
-@kde-desktop
-arc-kde
-
+##kde-desktop
+#arc-kde
+#################################################################
 
 ### Gnome Shell Extensions
-#gnome-extensions-app                        # Manage GNOME Shell extensions
-#gnome-shell-extension-background-logo       # Background logo extension for GNOME Shell
-#gnome-shell-extension-system-monitor-applet # A Gnome shell system monitor extension
-#gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
-#gnome-shell-extension-dash-to-dock          # Dash to Dock
-#gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
-#gnome-tweak-tool
-#arc-theme
+gnome-extensions-app                        # Manage GNOME Shell extensions
+gnome-shell-extension-background-logo       # Background logo extension for GNOME Shell
+gnome-shell-extension-system-monitor-applet # A Gnome shell system monitor extension
+gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
+gnome-shell-extension-dash-to-dock          # Dash to Dock
+gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
+gnome-shell-extension-caffeine
+gnome-tweak-tool
+arc-theme
 papirus-icon-theme
 lutris
 steam
 wine
 vlc
 ffmpeg
+tlp
+
+
 
 
 %end
 
 
 %anaconda
+
 # --minquality does not seem to work
 #pwpolicy root --minlen=10 --minquality=50 --strict --notempty --nochanges
 #pwpolicy user --minlen=8  --minquality=30 --strict --notempty --nochanges
@@ -96,32 +105,34 @@ ffmpeg
 %post
 # Repositories
 dnf -y sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-# Packages
-# NVIDIA
-# dnf -y install nvidia-driver nvidia-settings
 # Signal Desktop as Flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.signal.Signal
 #flatpak -y install spotify
 
 sudo wget --output-document=/usr/share/backgrounds/fedora-workstation/now2y.jpg https://i.pinimg.com/originals/3b/8a/d2/3b8ad2c7b1be2caf24321c852103598a.jpg
-sudo wget --output-document=/home/$USER/.config/gconf/dconf.ini https://raw.githubusercontent.com/ShogoXY/kickstart_fedora/main/dconf.ini
 
-dconf load / < /home/$USER/.config/gconf/dconf.ini
+wget --output-document=/home/after-install.sh https://raw.githubusercontent.com/ShogoXY/kickstart_fedora/main/after-instal.sh
+chmod +x /home/after-install.sh
 
+#######################################################################
+
+# Packages
+# NVIDIA
+# dnf -y install nvidia-driver nvidia-settings
 
 # dnf-automatic security upgrades
 # timer configuration: /etc/systemd/system/multi-user.target.wants/dnf-automatic.timer
-echo -n '[commands]
-upgrade_type = security
-random_sleep = 0
-download_updates = yes
-apply_updates = yes
+#echo -n '[commands]
+#upgrade_type = security
+#random_sleep = 0
+#download_updates = yes
+#apply_updates = yes
 
 
-[base]
-debuglevel = 1' > /etc/dnf/automatic.conf;
-systemctl enable --now dnf-automatic.timer
-
+#[base]
+#debuglevel = 1' > /etc/dnf/automatic.conf;
+#systemctl enable --now dnf-automatic.timer
+########################################################################
 %end
 
 # Reboot After Installation
