@@ -55,7 +55,7 @@ timezone Europe/Warsaw
 %packages
 
 
-@"Fedora Workstation"
+@Fedora Workstation
 ################################################################
 #@^workstation-product-environment
 #@admin-tools
