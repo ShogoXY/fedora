@@ -63,13 +63,13 @@ timezone Europe/Warsaw
 #@system-tools
 
 ### Gnome Shell Extensions
-#gnome-extensions-app                        # Manage GNOME Shell extensions
-#gnome-shell-extension-background-logo       # Background logo extension for GNOME Shell
-#gnome-shell-extension-system-monitor-applet # A Gnome shell system monitor extension
-#gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
-#gnome-shell-extension-dash-to-dock          # Dash to Dock
-#gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
-#gnome-tweak-tool
+gnome-extensions-app                        # Manage GNOME Shell extensions
+gnome-shell-extension-background-logo       # Background logo extension for GNOME Shell
+gnome-shell-extension-system-monitor-applet # A Gnome shell system monitor extension
+gnome-shell-extension-apps-menu             # Application menu for GNOME Shell
+gnome-shell-extension-dash-to-dock          # Dash to Dock
+gnome-shell-extension-places-menu           # Places status menu for GNOME Shell
+gnome-tweak-tool
 arc-theme
 papirus-icon-theme
 lutris
