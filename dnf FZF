@@ -1,6 +1,6 @@
 FEDORA
 
-echo alias dnfinstall="dnf list | awk '{print \$1}' | fzf --multi --cycle --reverse| xargs -or sudo dnf install" >> /home/$USER/.bashrc
+echo 'alias dnfinstall="dnf list | awk '{print \$1}' | fzf --multi --cycle --reverse| xargs -or sudo dnf install"' >> /home/$USER/.bashrc
 
 
 DEBIAN
