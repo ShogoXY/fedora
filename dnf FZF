@@ -17,11 +17,11 @@ sudo dnf upgrade --refresh
 
 
 DEBIAN KDE
-sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other-deps/Debian_Unstable/ ./ >> /etc/apt/source.list
-sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/frameworks/Debian_Unstable/ ./ >> /etc/apt/source.list
-sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/plasma522/Debian_Unstable/ ./ >> /etc/apt/source.list
-sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/apps2104/Debian_Unstable/ ./ >> /etc/apt/source.list
-sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other/Debian_Unstable/ ./ >> /etc/apt/source.list
+sudo apt-add-repository 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other-deps/Debian_Unstable/ ./'
+sudo apt-add-repository 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/frameworks/Debian_Unstable/ ./'
+sudo apt-add-repository 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/plasma522/Debian_Unstable/ ./'
+sudo apt-add-repository 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/apps2104/Debian_Unstable/ ./'
+sudo apt-add-repository 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other/Debian_Unstable/ ./'
 sudo wget -qO - https://www.preining.info/obs-npreining.asc | sudo apt-key add -
 sudo apt update -y && sudo apt upgrade -y
 read -n 1 -s -r -p $'\nNaciśnij dowolny klawisz by wykonac reboot systemu \n jeżeli chcesz przerwać naciśnij "CTRL+C"\n' && sudo reboot
