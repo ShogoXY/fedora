@@ -5,6 +5,7 @@ alias dnfinstall="dnf list | awk '{print \$1}' | fzf --multi --cycle --reverse| 
 
 DEBIAN
 
+sudo apt install fzf
 fzf --multi --cycle --reverse --preview "apt-cache show {1}" --preview-window=:57%:wrap:hidden --bind=space:toggle-preview | xargs -ro sudo apt install
 
 
@@ -16,11 +17,10 @@ sudo dnf upgrade --refresh
 
 
 DEBIAN KDE
-deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other-deps/Debian_Unstable/ ./
-deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/frameworks/Debian_Unstable/ ./
-deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/plasma522/Debian_Unstable/ ./
-deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/apps2104/Debian_Unstable/ ./
-deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other/Debian_Unstable/ ./
-
-
-wget -qO - https://www.preining.info/obs-npreining.asc | sudo apt-key add -
+sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other-deps/Debian_Unstable/ ./ >> /etc/apt/source.list
+sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/frameworks/Debian_Unstable/ ./ >> /etc/apt/source.list
+sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/plasma522/Debian_Unstable/ ./ >> /etc/apt/source.list
+sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/apps2104/Debian_Unstable/ ./ >> /etc/apt/source.list
+sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other/Debian_Unstable/ ./ >> /etc/apt/source.list
+sudo wget -qO - https://www.preining.info/obs-npreining.asc | sudo apt-key add -
+sudo apt update -y && sudo apt upgrade -y
