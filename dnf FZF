@@ -24,3 +24,4 @@ sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian
 sudo echo deb https://download.opensuse.org/repositories/home:/npreining:/debian-kde:/other/Debian_Unstable/ ./ >> /etc/apt/source.list
 sudo wget -qO - https://www.preining.info/obs-npreining.asc | sudo apt-key add -
 sudo apt update -y && sudo apt upgrade -y
+read -n 1 -s -r -p $'\nNaciśnij dowolny klawisz by wykonac reboot systemu \n jeżeli chcesz przerwać naciśnij "CTRL+C"\n' && sudo reboot
