@@ -2,17 +2,17 @@
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
+" global hot key
+
 nnoremap <Space> :
-
-
-vmap <C-c> "*y 
-nmap <C-c> "*Y
-nmap <C-v> "*p
-
+nnoremap <C-s> :w <CR>
 
 "show number line and relative number from 1 to cursor
 set nu
 set relativenumber
+set noswapfile
+set colorcolumn=80
+
 
 "line on cursor
 set cursorline 
@@ -22,6 +22,8 @@ set nowrap
 
 "enable mouse
 set mouse=a
+set clipboard+=autoselect guioptions+=a
+nnoremap <A-LeftMouse> <A-LeftMouse>i
 
 "enable syntax highlight
 syntax enable
@@ -60,7 +62,10 @@ let python_highlight_all = 1
 ""inoremap {<CR> {<CR>}<ESC>O
 ""inoremap {;<CR> {<CR>};<ESC>O
 
-"############################################### Vundle instaling ###########
+
+
+
+"  Vundle   ###################################################################
 set nocompatible              " required
 filetype off                  " required
 
@@ -74,39 +79,35 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
-" ...
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-
-" dobra coś nowego do dodania
-
-"############################################# PLUGINS ###########
+"  Plugin    ##################################################################
 
 
 
-
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'dense-analysis/ale'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Yggdroot/indentLine'
+"Plugin 'nathanaelkane/vim-indent-guides'
 
+"  NERDTREE   #################################################################
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
+"nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-"let NERDTreeShowHidden=1
+nnoremap <C-n> :let NERDTreeShowHidden=1 <CR>
 
 
 "Plugin 'jistr/vim-nerdtree-tabs'
@@ -115,7 +116,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 
-" ############################################ COLOR #####################
+"  Color   ####################################################################
 
 set background=dark
 let g:solarized_termcolors=256
@@ -127,20 +128,33 @@ colorscheme gruvbox
 
 
 "##################################################
+
+
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
-" auto save undo file
-set undodir=~/.vim/undodir
-set undofile
+"  BuckUp   ###################################################################
+  
+"Turn on backup option                                          
+set backup                                                      
 
-" Let's save undo info!
-"if !isdirectory($HOME."/.vim")
-""    call mkdir($HOME."/.vim", "", 0770)
-"endif
-"if !isdirectory($HOME."/.vim/undo-dir")
-"    call mkdir($HOME."/.vim/undo-dir", "", 0700)
-"endif
-"set undodir=~/.vim/undo-dir
-"set undofile
+"Where to store backups                                         
+silent !mkdir .vim_backup > /dev/null 2>&1                      
+"Make backup before overwriting the current buffer              
+set backupdir=.vim/backup//                                     
+set writebackup                                                 
+   
+"Overwrite the original backup file                             
+set backupcopy=yes                                              
+  
+"Meaningful backup name, ex: filename@2015-04-05.14:59          
+au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")          
+   
+" copy   ######################################################################
+
+vmap <C-c> "+yi 
+vmap <C-x> "+c
+vmap <C-p> c<ESC>"+p
+imap <C-p> <ESC>"+pa 
+ 
