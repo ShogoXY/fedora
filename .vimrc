@@ -1,11 +1,16 @@
 " run python script always save first
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 " global hot key
 
 nnoremap <Space> :
 nnoremap <C-s> :w <CR>
+imap <buffer> <C-S> <esc> :w <CR>
+let g:autopep8_on_save = 1
+let g:autopep8_disable_show_diff=1
+
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
 "show number line and relative number from 1 to cursor
 set nu
@@ -97,6 +102,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
+Plugin 'tell-k/vim-autopep8'
 "Plugin 'nathanaelkane/vim-indent-guides'
 
 "  NERDTREE   #################################################################
@@ -140,10 +146,11 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set backup                                                      
 
 "Where to store backups                                         
-silent !mkdir .vim_backup > /dev/null 2>&1                      
+silent !mkdir vim_backup > /dev/null 2>&1  
+
 "Make backup before overwriting the current buffer              
-set backupdir=.vim/backup//                                     
-set writebackup                                                 
+set backupdir=vim_backup//                                     
+set writebackup                                              
    
 "Overwrite the original backup file                             
 set backupcopy=yes                                              
