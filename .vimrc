@@ -27,8 +27,7 @@ set nowrap
 
 "enable mouse
 set mouse=a
-set clipboard^=unnamedplus
-"set clipboard+=autoselect guioptions+=a
+
 nnoremap <A-LeftMouse> <A-LeftMouse>i
 
 "enable syntax highlight
@@ -149,24 +148,26 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "  BuckUp   ###################################################################
   
-"Turn on backup option                                          
-set backup                                                      
-
-"Where to store backups                                         
-silent !mkdir vim_backup > /dev/null 2>&1  
-
-"Make backup before overwriting the current buffer              
-set backupdir=vim_backup//                                     
-set writebackup                                              
-   
-"Overwrite the original backup file                             
-set backupcopy=yes                                              
-  
-"Meaningful backup name, ex: filename@2015-04-05.14:59          
-au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")          
-   
+"Turn on backup option                                                    "                                     
+set backup                                                                "
+                                                                          "
+"Where to store backups                                                   "
+silent !mkdir vim_backup > /dev/null 2>&1                                 "
+                                                                          "
+"Make backup before overwriting the current buffer                        "
+set backupdir=vim_backup//                                                "
+set writebackup                                                           "
+                                                                          "      
+"Overwrite the original backup file                                       "
+set backupcopy=yes                                                        "
+                                                                          "
+"Meaningful backup name, ex: filename@2015-04-05.14:59                    "
+au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")                    " 
+                                                                          "
 " copy   ######################################################################
 
+"set clipboard^=unnamedplus
+set clipboard+=autoselect guioptions+=a
 noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
