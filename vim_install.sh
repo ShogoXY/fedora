@@ -1,6 +1,7 @@
 #!/bin/bash
 
-https://github.com/ShogoXY/fedora/blob/30db9596419fb25eee3cf50115bda21879f767ae/.vimrc
+wget https://raw.githubusercontent.com/ShogoXY/fedora/main/.vimrc
+
 sudo bash -c `\
 apt install vim vim-gui-common -y
 apt install build-essential cmake vim-nox python3-dev -y
