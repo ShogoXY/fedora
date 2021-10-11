@@ -3,7 +3,7 @@ autocmd FileType python map <buffer> <F9> :w<CR>:exec '!clear; python3' shellesc
 autocmd FileType python imap <buffer> <F9> <esc> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<CR>
 
 " global hot key
-
+let mapleader=","
 nnoremap <Space> :
 nnoremap <C-s> :w <CR>
 imap <buffer> <C-S> <esc> :w <CR>
@@ -27,7 +27,8 @@ set nowrap
 
 "enable mouse
 set mouse=a
-set clipboard+=autoselect guioptions+=a
+set clipboard^=unnamedplus
+"set clipboard+=autoselect guioptions+=a
 nnoremap <A-LeftMouse> <A-LeftMouse>i
 
 "enable syntax highlight
@@ -48,6 +49,9 @@ set shiftwidth=4
 
 set splitbelow
 set splitright
+nnoremap <leader>fn :vnew <CR>
+nnoremap <leader>jn :new <CR>
+nnoremap <leader>hh :noh <CR>
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -103,6 +107,9 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'tpope/vim-fugitive'
+
+
 "Plugin 'nathanaelkane/vim-indent-guides'
 
 "  NERDTREE   #################################################################
@@ -160,8 +167,7 @@ au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
    
 " copy   ######################################################################
 
-vmap <C-c> "+yi 
-vmap <C-x> "+c
-vmap <C-p> c<ESC>"+p
-imap <C-p> <ESC>"+pa 
- 
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p 
