@@ -5,8 +5,8 @@ autocmd FileType python imap <buffer> <F9> <esc> :w<CR>:exec '!clear; python3' s
 " global hot key
 let mapleader=","
 nnoremap <Space> :
-nnoremap <C-s> :w <CR>
-imap <buffer> <C-S> <esc> :w <CR>
+nnoremap <C-s> :w <CR>:StripWhitespace <CR>
+imap <buffer> <C-S> <esc> :w <CR>:StripWhitespace <CR>
 let g:autopep8_on_save = 1
 let g:autopep8_disable_show_diff=1
 
@@ -20,7 +20,7 @@ set colorcolumn=80
 
 
 "line on cursor
-set cursorline 
+set cursorline
 
 " no wrap line if its to long
 set nowrap
@@ -44,7 +44,7 @@ set smarttab
 set autoindent
 set shiftwidth=4
 
-" split screen 
+" split screen
 
 set splitbelow
 set splitright
@@ -107,6 +107,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'tpope/vim-fugitive'
+Plugin 'ntpeters/vim-better-whitespace'
 
 
 "Plugin 'nathanaelkane/vim-indent-guides'
@@ -139,6 +140,15 @@ colorscheme gruvbox
 "colorscheme onedark
 
 
+augroup InsertHook
+
+    autocmd!
+
+    autocmd InsertEnter * hi Normal ctermbg=0 "at the time of insertion mode color
+
+    autocmd InsertLeave * hi Normal ctermbg=235 " in the normal mode color
+
+augroup END
 "##################################################
 
 
@@ -147,28 +157,37 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 "  BuckUp   ###################################################################
-  
-"Turn on backup option                                                    "                                     
-set backup                                                                "
-                                                                          "
-"Where to store backups                                                   "
-silent !mkdir vim_backup > /dev/null 2>&1                                 "
-                                                                          "
-"Make backup before overwriting the current buffer                        "
-set backupdir=vim_backup//                                                "
-set writebackup                                                           "
-                                                                          "      
-"Overwrite the original backup file                                       "
-set backupcopy=yes                                                        "
-                                                                          "
-"Meaningful backup name, ex: filename@2015-04-05.14:59                    "
-au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")                    " 
-                                                                          "
+
+"Turn on backup option
+set backup
+
+"Where to store backups
+silent !mkdir vim_backup > /dev/null 2>&1
+
+"Make backup before overwriting the current buffer
+set backupdir=vim_backup//
+set writebackup
+
+"Overwrite the original backup file
+set backupcopy=yes
+
+"Meaningful backup name, ex: filename@2015-04-05.14:59
+au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
+
 " copy   ######################################################################
 
-"set clipboard^=unnamedplus
-set clipboard+=autoselect guioptions+=a
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p 
+set clipboard=unnamedplus
+"set clipboard+=autoselect guioptions+=a
+noremap <Leader>Y "*y
+noremap <Leader>P "*p
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+
+" exit
+noremap <Leader>qq :qa <CR>
+
+" GIT  #############################################################
+
+noremap <Leader>gg :G <CR>
+noremap <Leader>gc :Git commit <CR>
+noremap <Leader>gp :Git push <CR>
