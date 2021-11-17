@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SYS=` cat /etc/*-release 2> /dev/null | grep PRETTY_NAME `
 
 if [[ $SYS =~ "Debian" ]]; then
 VAR=apt
