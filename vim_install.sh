@@ -4,6 +4,7 @@ SYS=` cat /etc/*-release 2> /dev/null | grep PRETTY_NAME `
 
 if [[ $SYS =~ "Debian" ]]; then
 VAR=apt
+sudo $VAR update -y
 sudo $VAR install git vim -y
 sudo $VAR install build-essential cmake vim-nox python3-dev -y
 
