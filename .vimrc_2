@@ -38,6 +38,9 @@ set noswapfile
 set colorcolumn=80
 
 
+set shortmess=a
+set cmdheight=2
+
 "line on cursor
 set cursorline
 
