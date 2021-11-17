@@ -18,7 +18,6 @@ sudo wget --output-document=/home/$USER/.vimrc https://raw.githubusercontent.com
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-cd ~/.vim/bundle/YouCompleteMe
-python3 install.py --all
+cd ~/.vim/bundle/YouCompleteMe/;python3 install.py --all
 vim +PluginInstall +qall
 vim .vimrc
