@@ -14,13 +14,13 @@ sudo $VAR install git vim -y
 sudo $VAR install cmake gcc-c++ make python3-devel -y 
 fi
 
-sudo wget --output-document=/home/$USER/.vimrc https://raw.githubusercontent.com/ShogoXY/fedora/main/.vimrc_3
+wget --output-document=/home/$USER/.vimrc https://raw.githubusercontent.com/ShogoXY/fedora/main/.vimrc_3
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
 vim +PluginInstall +qall
 cd ~/.vim/bundle/YouCompleteMe/;python3 install.py --all
-sudo wget --output-document=/home/$USER/.vimrc https://raw.githubusercontent.com/ShogoXY/fedora/main/.vimrc_2
+wget --output-document=/home/$USER/.vimrc https://raw.githubusercontent.com/ShogoXY/fedora/main/.vimrc_2
 cd
 cd ~;vim .vimrc
