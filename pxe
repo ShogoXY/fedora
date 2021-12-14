@@ -1,0 +1,17 @@
+konfiguracja dhcpd.conf
+tftpd
+oraz isc-dhsp-server
+
+sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa git
+
+
+cd /usr/lib/syslinux/modules/bios/
+sudo cp ldlinux.c32 /srv/tftp/
+cd /usr/lib/syslinux/modules/efi64/
+sudo cp ldlinux.e64 libutil.c32 libcom32.c32 menu.c32 /srv/tftp/
+cd /usr/lib/SYSLINUX.EFI/efi64/
+sudo cp syslinux.efi /srv/tftp/
+wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.1.0-amd64-netinst.iso
+sudo mkdir /srv/tftp/debian11
+sudo mount debian-11.1.0-amd64-netinst.iso /mnt
+sudo cp -rv /mnt/* /srv/tftp/debian11/
