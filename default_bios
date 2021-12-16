@@ -1,5 +1,8 @@
 UI menu.c32
 
+path efi64
+config /srv/tftp/pxelinux.cfg/default /srv/tftp
+
 LABEL Debian net
         MENU LABEL Debian
         KERNEL debian11/install.amd/vmlinuz
