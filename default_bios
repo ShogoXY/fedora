@@ -1,7 +1,7 @@
 UI menu.c32
-
-path efi64
-config /srv/tftp/pxelinux.cfg/default /srv/tftp
+#czy to potrzebne ??????
+#path efi64
+#config /srv/tftp/pxelinux.cfg/default /srv/tftp
 
 LABEL Debian net
         MENU LABEL Debian
