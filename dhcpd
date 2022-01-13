@@ -16,11 +16,11 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
 }
 option architecture code 93 = unsigned integer 16 ;
 if option architecture = 00:06 {
-  filename "efi64/syslinux.efi";
+  filename "debian-installer/amd64/bootnetx64.efi";
 } elsif option architecture = 00:07 {
-  filename "efi64/syslinux.efi";
+  filename "debian-installer/amd64/bootnetx64.efi";
 } elsif option architecture = 00:09 {
-  filename "efi64/syslinux.efi";
+  filename "debian-installer/amd64/bootnetx64.efi";
 } else {
   filename "pxelinux.0";
 }
