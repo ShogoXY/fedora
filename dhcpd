@@ -24,4 +24,11 @@ if option architecture = 00:06 {
 } else {
   filename "pxelinux.0";
 }
+
+class "httpclients" {
+      match if substring (option vendor-class-identifier, 0, 10) = "HTTPClient";
+      option vendor-class-identifier "HTTPClient";
+      filename "efi64/syslinux.efi";
+    }
+
               
