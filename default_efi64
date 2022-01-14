@@ -4,3 +4,8 @@ LABEL Debian net
         MENU LABEL Debian
         KERNEL ::debian11/install.amd/vmlinuz
         append initrd=::debian11/install.amd/initrd.gz
+
+LABEL Debian Http
+	MENU LABEL Debian by HTTPS
+        KERNEL http://192.168.0.2/debian11/install.amd/vmlinuz
+        append initrd=http://192.168.0.2/debian11/install.amd/initrd.gz
