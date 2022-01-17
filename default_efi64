@@ -20,8 +20,7 @@ LABEL Debian Http
 LABEL debian iso
 	MENU LABEL debian iso
 	KERNEL http://192.168.0.2/iso/debian_xfce/live/vmlinuz-5.10.0-10-amd64
-	INITRD initrd=http://192.168.0.2/iso/debian_xfce/live/initrd.img-5.10.0-10-amd64
-	APPEND nfsroot=192.168.0.2:/srv/tftp/iso/debian_xfce/ ro netboot=nfs boot=live ip=dhcp ---
+	APPEND initrd=http://192.168.0.2/iso/debian_xfce/live/initrd.img-5.10.0-10-amd64 nfsroot=192.168.0.2:/srv/tftp/iso/debian_xfce/ ro netboot=nfs boot=live ip=dhcp ---
 	TEXT HELP
 		Debian Live iso using HTTP
 	ENDTEXT
