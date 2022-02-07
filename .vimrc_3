@@ -131,6 +131,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'preservim/nerdcommenter'
 
 "power line
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
