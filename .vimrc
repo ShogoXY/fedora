@@ -108,6 +108,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
+PLugin 'preservim/nerdcommenter'
 
 
 "Plugin 'nathanaelkane/vim-indent-guides'
