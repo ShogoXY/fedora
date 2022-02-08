@@ -131,7 +131,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 
 "  Color   ####################################################################
-
+let g:gruvbox_guisp_fallback = "bg"
 set background=dark
 let g:solarized_termcolors=256
 set t_Co=256
