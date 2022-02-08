@@ -1,6 +1,6 @@
 "
 "
-"  __      _______ __  __ _____   _____    _____             __ _ 
+"  __      _______ __  __ _____   _____    _____             __ _
 "  \ \    / /_   _|  \/  |  __ \ / ____|  / ____|           / _(_)
 "   \ \  / /  | | | \  / | |__) | |      | |     ___  _ __ | |_ _  __ _
 "    \ \/ /   | | | |\/| |  _  /| |      | |    / _ \| '_ \|  _| |/ _` |
@@ -15,7 +15,7 @@
 
 
 " === RUN Python <F9> === {{{
-" run python script always save first 
+" run python script always save first
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<CR>
 " }}}
@@ -31,6 +31,7 @@ let g:autopep8_disable_show_diff=1
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
 map <F5> :set spell!<CR>
+nnoremap \s ea<C-X><C-S>
 
 " exit
 noremap <Leader>qq :qa <CR>
