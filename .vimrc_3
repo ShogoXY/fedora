@@ -213,4 +213,7 @@ augroup END
 
 " More Vimscripts code goes here.
 
+
+setlocal spell spelllang=pl,en_us
+
 " }}}
