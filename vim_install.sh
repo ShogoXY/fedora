@@ -25,6 +25,12 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 vim +PluginInstall +qall
 cd ~/.vim/bundle/YouCompleteMe/;python3 install.py --all
+mkdir ~/.vim/spell
+cd ~/.vim/spell
+wget http://ftp.vim.org/vim/runtime/spell/pl.utf-8.spl
+wget http://ftp.vim.org/vim/runtime/spell/pl.iso-8859-2.spl
+cd 
+
 wget --output-document=/home/$USER/.vimrc https://raw.githubusercontent.com/ShogoXY/fedora/main/.vimrc_2
 cd
 cd ~;vim .vimrc
