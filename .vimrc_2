@@ -29,6 +29,8 @@ let g:autopep8_disable_show_diff=1
 
 autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
+map <F5> :set spell!<CR>
+
 " exit
 noremap <Leader>qq :qa <CR>
 " }}}
@@ -39,6 +41,9 @@ set relativenumber
 set noswapfile
 set colorcolumn=80
 set scrolloff=10
+
+" LANGUAGE
+setlocal spell spelllang=pl,en_us
 
 
 set shortmess=a
