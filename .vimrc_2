@@ -1,15 +1,15 @@
-" 
-" 
-"  __      _______ __  __ _____   _____    _____             __ _       
-"  \ \    / /_   _|  \/  |  __ \ / ____|  / ____|           / _(_)      
-"   \ \  / /  | | | \  / | |__) | |      | |     ___  _ __ | |_ _  __ _ 
+"
+"
+"  __      _______ __  __ _____   _____    _____             __ _ 
+"  \ \    / /_   _|  \/  |  __ \ / ____|  / ____|           / _(_)
+"   \ \  / /  | | | \  / | |__) | |      | |     ___  _ __ | |_ _  __ _
 "    \ \/ /   | | | |\/| |  _  /| |      | |    / _ \| '_ \|  _| |/ _` |
 "   _ \  /   _| |_| |  | | | \ \| |____  | |___| (_) | | | | | | | (_| |
 "  (_) \/   |_____|_|  |_|_|  \_\\_____|  \_____\___/|_| |_|_| |_|\__, |
 "                                                                  __/ |
-"                                                                 |___/ 
-" 
-" 
+"                                                                 |___/
+"
+"
 
 
 
@@ -19,6 +19,7 @@
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<CR>
 " }}}
+
 " === GLOBAL HOT KEY === {{{
 let mapleader=","
 nnoremap <Space> :
@@ -34,6 +35,7 @@ map <F5> :set spell!<CR>
 " exit
 noremap <Leader>qq :qa <CR>
 " }}}
+
 " === MAIN SET === {{{
 " show number line, mouse, wrap, highlite, tabs
 set nu
@@ -72,13 +74,14 @@ set expandtab
 set sw=4
 set sts=4
 
-" show the matching part of the pair for [] {} and () 
+
 set showmatch
 set smartindent
 set smarttab
 set autoindent
 set shiftwidth=4
 " }}}
+
 " === SPLIT SCREEN === {{{
 
 set splitbelow
@@ -94,7 +97,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
-
+" show the matching part of the pair for [] {} and ()
 ""inoremap " ""<left>
 ""inoremap ' ''<left>
 ""inoremap ( ()<left>
@@ -104,6 +107,7 @@ nnoremap <C-H> <C-W><C-H>
 ""inoremap {;<CR> {<CR>};<ESC>O
 
 " }}}
+
 "  === Vundle Plug === {{{
 set nocompatible              " required
 filetype off                  " required
@@ -124,6 +128,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " }}}
+
 "  === PLUGINS ===   {{{
 
 
@@ -146,7 +151,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 "Plugin 'nathanaelkane/vim-indent-guides'
 
-"  === NERDTREE ===  
+"  === NERDTREE ===
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -161,6 +166,7 @@ nnoremap <C-n> :let NERDTreeShowHidden=1 <CR>
 
 
 " }}}
+
 "  === COLOR ===   {{{
 let g:gruvbox_guisp_fallback = "bg"
 set background=dark
@@ -172,24 +178,22 @@ colorscheme gruvbox
 "colorscheme onedark
 
 " change color background
-augroup InsertHook
-
-    autocmd!
-
-    autocmd InsertEnter * hi Normal ctermbg=0 "at the time of insertion mode color
-
-    autocmd InsertLeave * hi Normal ctermbg=235 " in the normal mode color
-
-augroup END
+" augroup InsertHook
+"    autocmd!
+"    autocmd InsertEnter * hi Normal ctermbg=0 "at the time of insertion mode color
+"    autocmd InsertLeave * hi Normal ctermbg=235 " in the normal mode color
+" augroup END
 
 " }}}
-" === YouCompleteMe === {{{ 
+
+" === YouCompleteMe === {{{
 
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " }}}
+
 "  === BACKUP ===  {{{
 
 "Turn on backup option
@@ -199,7 +203,7 @@ set backup
 silent !mkdir vim_backup > /dev/null 2>&1
 
 "Make backup before overwriting the current buffer
-set backupdir=vim_backup//
+set backupdir=~/vim_backup//
 set writebackup
 
 "Overwrite the original backup file
@@ -208,6 +212,7 @@ set backupcopy=yes
 "Meaningful backup name, ex: filename@2015-04-05.14:59
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 " }}}
+
 " === COPY / PASTE === {{{
 
 set clipboard=unnamedplus
@@ -218,6 +223,7 @@ noremap <Leader>y "+y
 noremap <Leader>p "+p
 
 " }}}
+
 " === GIT === {{{ 
 
 noremap <Leader>gg :G <CR>
@@ -228,6 +234,7 @@ let g:ycm_show_diagnostics_ui = 0
 let g:indentLine_newVersion = 0
 
 " }}}
+
 " Folding in VimRC {{{
 
 " This will enable code folding.
