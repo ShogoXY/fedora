@@ -14,11 +14,12 @@
 
 
 
-" run python script always save first {{{
+" === RUN Python <F9> === {{{
+" run python script always save first 
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc> :w<CR>:exec '!clear; python3' shellescape(@%, 1)<CR>
 " }}}
-" global hot key {{{
+" === GLOBAL HOT KEY === {{{
 let mapleader=","
 nnoremap <Space> :
 nnoremap <C-s> :w <CR>:StripWhitespace <CR>
@@ -31,11 +32,13 @@ autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 " exit
 noremap <Leader>qq :qa <CR>
 " }}}
-"show number line, mouse, wrap, highlite, tabs   {{{
+" === MAIN SET === {{{
+" show number line, mouse, wrap, highlite, tabs
 set nu
 set relativenumber
 set noswapfile
 set colorcolumn=80
+set scrolloff=10
 
 
 set shortmess=a
@@ -63,15 +66,15 @@ let python_highlight_all = 1
 set expandtab
 set sw=4
 set sts=4
-" }}}
-" show the matching part of the pair for [] {} and () {{{
+
+" show the matching part of the pair for [] {} and () 
 set showmatch
 set smartindent
 set smarttab
 set autoindent
 set shiftwidth=4
 " }}}
-" split screen {{{
+" === SPLIT SCREEN === {{{
 
 set splitbelow
 set splitright
@@ -96,7 +99,7 @@ nnoremap <C-H> <C-W><C-H>
 ""inoremap {;<CR> {<CR>};<ESC>O
 
 " }}}
-"  Vundle {{{
+"  === Vundle Plug === {{{
 set nocompatible              " required
 filetype off                  " required
 
@@ -116,7 +119,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " }}}
-"  Plugin   {{{
+"  === PLUGINS ===   {{{
 
 
 
@@ -137,8 +140,8 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 "Plugin 'nathanaelkane/vim-indent-guides'
-" }}}
-"  NERDTREE  {{{ 
+
+"  === NERDTREE ===  
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -153,8 +156,8 @@ nnoremap <C-n> :let NERDTreeShowHidden=1 <CR>
 
 
 " }}}
-"  Color   {{{
-
+"  === COLOR ===   {{{
+let g:gruvbox_guisp_fallback = "bg"
 set background=dark
 let g:solarized_termcolors=256
 set t_Co=256
@@ -175,14 +178,14 @@ augroup InsertHook
 augroup END
 
 " }}}
-" YouCompleteMe {{{ 
+" === YouCompleteMe === {{{ 
 
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " }}}
-"  BuckUp  {{{
+"  === BACKUP ===  {{{
 
 "Turn on backup option
 set backup
@@ -200,7 +203,7 @@ set backupcopy=yes
 "Meaningful backup name, ex: filename@2015-04-05.14:59
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 " }}}
-" copy {{{
+" === COPY / PASTE === {{{
 
 set clipboard=unnamedplus
 "set clipboard+=autoselect guioptions+=a
@@ -210,7 +213,7 @@ noremap <Leader>y "+y
 noremap <Leader>p "+p
 
 " }}}
-" GIT {{{ 
+" === GIT === {{{ 
 
 noremap <Leader>gg :G <CR>
 noremap <Leader>gc :Git commit <CR>
