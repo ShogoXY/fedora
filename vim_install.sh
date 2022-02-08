@@ -14,8 +14,10 @@ sudo $VAR install git vim -y
 sudo $VAR install cmake gcc-c++ make python3-devel -y 
 fi
 mkdir ~/.vim/spell
-wget --output-document=/home/$USER/.vimrc/spell http://ftp.vim.org/vim/runtime/spell/pl.utf-8.spl
-wget --output-document=/home/$USER/.vimrc/spell http://ftp.vim.org/vim/runtime/spell/pl.iso-8859-2.spl
+cd ~/.vim/spell
+wget http://ftp.vim.org/vim/runtime/spell/pl.utf-8.spl
+wget http://ftp.vim.org/vim/runtime/spell/pl.iso-8859-2.spl
+cd 
 wget --output-document=/home/$USER/.vimrc https://raw.githubusercontent.com/ShogoXY/fedora/main/.vimrc_3
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
