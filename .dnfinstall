@@ -6,7 +6,7 @@ COLUMNS=$(tput cols)
 title="====================================================="
 title1="DNF Fuzzy Finder"
 title2="====================================================="
-title3="To chose more then one package use <TAB> key"
+title3="To chose more than one package use <TAB> key"
 title4="Below, list of all package "
 
 printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
