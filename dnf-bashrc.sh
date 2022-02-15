@@ -1,7 +1,7 @@
 #!/bin/bash
 
-wget https://raw.githubusercontent.com/ShogoXY/fedora/main/.dnfinstall.sh
+wget https://raw.githubusercontent.com/ShogoXY/fedora/main/.dnfinstall
 
-echo \alias dnfinstall=bash ~/.dnfinstall.sh >> ~/.bashrc
+echo alias dnfinstall="bash ~/.dnfinstall" >> ~/.bashrc
 
 source ~/.bashrc
