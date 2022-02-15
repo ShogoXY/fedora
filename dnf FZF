@@ -1,5 +1,31 @@
 FEDORA
 
+#!/bin/sh
+
+clear
+
+printf "=====================================================
+		DNF Fuzzy Finder
+=====================================================
+To chose more then one package use <TAB> key
+Below list of all package 
+"
+
+dnf list |tail -n +3| awk -F . '{print $1}'| fzf --height=90% --border --multi --cycle --reverse --preview 'dnf info {1}|tail -n +2|sed "s|Zainstalowane pakiety|\nZainstalowany \n|g"|sed "s|Dostępne pakiety|\nNIE Zainstalowany\nDostępny do instalacji\n|g"' --preview-window=:57%:wrap| xargs -or sudo dnf install""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 echo \alias dnfinstall=\""dnf list | awk '{print \\\$1}' | fzf --multi --cycle --reverse| xargs -or sudo dnf install"\" >> /home/$USER/.bashrc && sudo dnf install fzf -y && source ~/.bashrc && echo -e "\n\nTo use dnf with FZF just type 'dnfinstall'\n" 
 
 
