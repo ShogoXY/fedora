@@ -1,21 +1,21 @@
 #version=F33
 
 # URLs and REPOs
-url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-33&arch=x86_64"
-repo --name=fedora-updates --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f33&arch=x86_64" --cost=0
+url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-35&arch=x86_64"
+repo --name=fedora-updates --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f35&arch=x86_64" --cost=0
 # RPMFusion Free
-repo --name=rpmfusion-free --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-33&arch=x86_64" --includepkgs=rpmfusion-free-release
-repo --name=rpmfusion-free-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-33&arch=x86_64" --cost=0
-repo --name=rpmfusion-free-tainted --mirrorlist="https://mirrors.rpmfusion.org/metalink?repo=free-fedora-tainted-33&arch=x86_64"
+repo --name=rpmfusion-free --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-35&arch=x86_64" --includepkgs=rpmfusion-free-release
+repo --name=rpmfusion-free-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-35&arch=x86_64" --cost=0
+repo --name=rpmfusion-free-tainted --mirrorlist="https://mirrors.rpmfusion.org/metalink?repo=free-fedora-tainted-35&arch=x86_64"
 # RPMFusion NonFree
-repo --name=rpmfusion-nonfree --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-33&arch=x86_64" --includepkgs=rpmfusion-nonfree-release
-repo --name=rpmfusion-nonfree-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-released-33&arch=x86_64" --cost=0
-repo --name=rpmfusion-nonfree-tainted --mirrorlist="https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-tainted-33&arch=x86_64"
+repo --name=rpmfusion-nonfree --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-35&arch=x86_64" --includepkgs=rpmfusion-nonfree-release
+repo --name=rpmfusion-nonfree-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-released-35&arch=x86_64" --cost=0
+repo --name=rpmfusion-nonfree-tainted --mirrorlist="https://mirrors.rpmfusion.org/metalink?repo=nonfree-fedora-tainted-35&arch=x86_64"
 # Negativo17 NVIDIA/CUDA
-#repo --name=negativo17 --baseurl="https://negativo17.org/repos/nvidia/fedora-33/x86_64/"
+#repo --name=negativo17 --baseurl="https://negativo17.org/repos/nvidia/fedora-35/x86_64/"
 # Secure Messenger
 repo --name=keybase --baseurl="http://prerelease.keybase.io/rpm/x86_64"
-repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/results/taw/element/fedora-33-x86_64/"
+repo --name=element --baseurl="https://download.copr.fedorainfracloud.org/results/taw/element/fedora-35-x86_64/"
 
 # Use graphical install
 graphical
