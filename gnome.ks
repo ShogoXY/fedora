@@ -102,5 +102,7 @@ sudo systemctl disable NetworkManager-wait-online.service
 #apply_updates = yes
 
 
+%end
+
 # Reboot After Installation
 reboot --eject
