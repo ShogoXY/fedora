@@ -1,6 +1,12 @@
 #version=F36
 
 # URLs and REPOs
+
+
+
+url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-36&arch=x86_64"
+repo --name=fedora-updates --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f36&arch=x86_64" --cost=0
+
 ## rpmfusion
 repo --name=rpmfusion-free --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-@fedora.version@&arch=@fedora.arch@
 repo --name=rpmfusion-free-updates --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-@fedora.version@&arch=@fedora.arch@
@@ -9,8 +15,6 @@ repo --name=rpmfusion-nonfree-updates --mirrorlist=http://mirrors.rpmfusion.org/
 
 
 
-#url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-36&arch=x86_64"
-#repo --name=fedora-updates --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f36&arch=x86_64" --cost=0
 # RPMFusion Free
 #repo --name=rpmfusion-free --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-36&arch=x86_64" --includepkgs=rpmfusion-free-release
 #repo --name=rpmfusion-free-updates --mirrorlist="https://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-36&arch=x86_64" --cost=0
