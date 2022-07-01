@@ -71,11 +71,7 @@ gnome-shell-extension-caffeine
 gnome-tweak-tool
 arc-theme
 papirus-icon-theme
-lutris
 steam
-wine
-vlc
-ffmpeg
 tlp
 git
 
