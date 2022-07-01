@@ -1,11 +1,11 @@
-#version=F33
+#version=F36
 
 # URLs and REPOs
 ## rpmfusion
-#repo --name=rpmfusion-free --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-@fedora.version@&arch=@fedora.arch@
-#repo --name=rpmfusion-free-updates --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-@fedora.version@&arch=@fedora.arch@
-#repo --name=rpmfusion-nonfree --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-@fedora.version@&arch=@fedora.arch@
-#repo --name=rpmfusion-nonfree-updates --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-released-@fedora.version@&arch=@fedora.arch@
+repo --name=rpmfusion-free --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-@fedora.version@&arch=@fedora.arch@
+repo --name=rpmfusion-free-updates --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-released-@fedora.version@&arch=@fedora.arch@
+repo --name=rpmfusion-nonfree --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-@fedora.version@&arch=@fedora.arch@
+repo --name=rpmfusion-nonfree-updates --mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=nonfree-fedora-updates-released-@fedora.version@&arch=@fedora.arch@
 
 
 
