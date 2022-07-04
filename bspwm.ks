@@ -43,9 +43,9 @@ lang pl_PL.UTF-8
 @Fedora Workstation
 ################################################################
 @^custom-environment
-@standard
 @networkmanager-submodules
-@window-manager
+@standard
+@window-managers
 vim
 git
 feh
