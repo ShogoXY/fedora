@@ -84,6 +84,14 @@ python3-neovim
 
 %end
 
+# Generated using Blivet version 3.4.3
+ignoredisk --only-use=nvme0n1
+autopart
+# Partition clearing information
+clearpart --none --initlabel
+
+# System timezone
+timezone Europe/Warsaw --utc
 
 #Root password
 rootpw --lock
