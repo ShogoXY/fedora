@@ -85,6 +85,12 @@ python3-neovim
 %end
 
 
+#Root password
+rootpw --lock
+user --groups=wheel --name=fedora --password=$y$j9T$Rw06fSjzRWFZ2xKDR3tjne7Z$uXqibpj5Rq7Ct2RKYIw0siIpK2mrAM/nIhxFPa0kVpC --iscrypted --gecos="fedora"
+
+
+
 %post
 # Repositories
 dnf -y sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
