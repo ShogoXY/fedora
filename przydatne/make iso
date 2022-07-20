@@ -1,0 +1,14 @@
+mkisofs -o /home/darek/test_iso.iso -b isolinux/isolinux.bin -c isolinux/boot.cat --no-emul-boot --boot-load-size 4 --boot-info-table -eltorito-alt-boot -e images/efiboot.img -graft_points EFI/BOOT=/home/darek/Pobrane/iso/EFI/BOOT images/efiboot.img=/home/darek/Pobrane/iso/images/efiboot.img \
+-no-emul-boot -J -R -V Fedora-S-23-x86_64 /home/darek/Pobrane/iso/
+
+
+ mkisofs -o Fedora-Server-x86_64-23-Vnc.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -R -V Fedora-S-23-x86_64 . 
+
+ 
+ # genisoimage -U -r -v -T -J -joliet-long -V "RHEL-7.4 Server.x86_64" -volset "RHEL-7.4 Server.x86_64" -A "RHEL-7.4 Server.x86_64" -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e images/efiboot.img -no-emul-boot -o ../RHEL7.iso .
+
+ 
+ mkisofs -o /home/darek/test_iso.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e images/efiboot.img -no-emul-boot -J -R -V Fedora-S-dvd-x86_64-33 /home/darek/Pobrane/iso/
+
+
+sudo livecd-creator -c fedora-live-workstation.ks -f darek-test2 --cache=/home/darek/test --tmpdir=/home/darek/test2 --logfile=/home/darek/test2.txt

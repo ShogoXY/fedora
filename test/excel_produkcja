@@ -1,0 +1,27 @@
+Sub wartosc()
+
+kom = InputBox(Prompt:="Podaj Komentarz do wpisania w komórkę K")
+SN = InputBox(Prompt:="Podaj numer seryjny ")
+
+Do While SN <> ""
+    
+    
+    Dim Cell As Range
+    Columns("E:E").Select
+    Set Cell = Selection.Find(What:=SN, After:=ActiveCell, LookIn:=xlFormulas, _
+            LookAt:=xlWhole, SearchOrder:=xlByRows, SearchDirection:=xlNext, _
+            MatchCase:=False, SearchFormat:=False)
+    
+    If Cell Is Nothing Then
+        MsgBox "NO DATA"
+        Exit Do
+    Else
+       Cell.Offset(0, 6).Value = kom
+       SN = InputBox(Prompt:="Podaj numer seryjny")
+    End If
+    
+Loop
+
+End Sub
+
+
