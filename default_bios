@@ -1,6 +1,0 @@
-UI menu.c32
-
-LABEL Debian net
-        MENU LABEL Debian
-        KERNEL debian11/install.amd/vmlinuz
-        append initrd=debian11/install.amd/initrd.gz
