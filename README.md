@@ -7,5 +7,5 @@ bash dnf-bashrc.sh
 ```
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/ShogoXY/fedora/main/fedora_after_install.sh)
+bash <(curl -s https://raw.githubusercontent.com/ShogoXY/fedora/main/fedora_laptop_install.sh)
 ```
