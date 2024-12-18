@@ -28,10 +28,9 @@ rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim/lazy/
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
-
-wget https://github.com/ShogoXY/fedora/blob/main/fedora-40-displaylink-1.14.6-1.github_evdi.x86_64.rpm
-sudo dnf install fedora-40-displaylink-1.14.6-1.github_evdi.x86_64.rpm -y
-rm fedora-40-displaylink-1.14.6-1.github_evdi.x86_64.rpm
+curl -OL https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v6.1.0-2/fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm
+sudo dnf install fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm -y
+rm fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm
 
 ## sudo dnf install "/run/media/$USER/Ventoy/fedora-40-displaylink-1.14.6-1.github_evdi.x86_64.rpm" -y
 
