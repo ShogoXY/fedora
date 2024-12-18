@@ -49,8 +49,8 @@ fi
 flatpak install flathub com.github.tchx84.Flatseal -y
 flatpak install flathub com.spotify.Client -y
 
-nvim --headless "+Lazy! sync" +qa
-nvim --headless "+Lazy! update" +qa
+nvim --headless "+Lazy! sync" +qa >>/dev/null
+nvim --headless "+Lazy! update" +qa >>/dev/null
 echo ""
 mkdir -p $HOME/.fonts
 
