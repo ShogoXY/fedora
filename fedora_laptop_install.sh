@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo 
 
@@ -17,6 +18,11 @@ xorg-x11-font-utils
 fontconfig
 flameshot
 neovim
+displaylink
+afetch
+bat
+cascadia-mono-nf-fonts
+eza
 ")
 
 
@@ -28,9 +34,9 @@ rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim/lazy/
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
-curl -OL https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v6.1.0-2/fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm
-sudo dnf install fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm -y
-rm fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm
+#curl -OL https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v6.1.0-2/fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm
+#sudo dnf install fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm -y
+#rm fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm
 
 ## sudo dnf install "/run/media/$USER/Ventoy/fedora-40-displaylink-1.14.6-1.github_evdi.x86_64.rpm" -y
 
@@ -41,6 +47,14 @@ sudo dnf update
 
 if [[ "$DESKTOP_SESSION" == "gnome" ]]
 then
+    sudo dnf update -y
+    
+    packages_gnome=$(printf "
+    flameshot
+    ")
+    
+    sudo dnf -y install $packages_gnome
+
     flatpak install flathub com.mattjakeman.ExtensionManager -y
     echo "udalosie"
     sleep 5
@@ -61,6 +75,11 @@ curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Cascad
 
 for f in *.zip; do unzip "$f" -d "$HOME/.fonts/${f%.zip}"; done
 rm *.zip
+
+echo "alias cat=\"bat\"" >> ~/.bashrc
+echo "alias ls=\"eza -l --icons\"" >> ~/.bashrc
+echo "afetch" >> ~/.bashrc
+
 
 echo ""
 echo "Installation Complete"
