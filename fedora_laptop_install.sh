@@ -22,7 +22,7 @@ displaylink
 afetch
 bat
 cascadia-mono-nf-fonts
-eza
+
 ")
 
 
@@ -77,7 +77,7 @@ for f in *.zip; do unzip "$f" -d "$HOME/.fonts/${f%.zip}"; done
 rm *.zip
 
 echo "alias cat=\"bat\"" >> ~/.bashrc
-echo "alias ls=\"eza -l --icons\"" >> ~/.bashrc
+#echo "alias ls=\"eza -l --icons\"" >> ~/.bashrc
 echo "afetch" >> ~/.bashrc
 
 
