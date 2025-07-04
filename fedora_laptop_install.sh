@@ -52,11 +52,15 @@ then
     packages_gnome=$(printf "
     flameshot
     ")
-    
+    wget https://raw.githubusercontent.com/ShogoXY/fedora/main/5VUhtaY.jpeg
+    gsettings get org.gnome.desktop.background picture-uri 'file://$HOME/5VUhtaY.jpeg'
+    gsettings get org.gnome.desktop.background picture-uri-dark 'file://$HOME/5VUhtaY.jpeg'
+   
     sudo dnf -y install $packages_gnome
 
     flatpak install flathub com.mattjakeman.ExtensionManager -y
     echo "udalosie"
+    rm $HOME/5VUhtaY.jpg 
     sleep 5
 fi
 
