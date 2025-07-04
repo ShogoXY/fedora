@@ -22,6 +22,7 @@ displaylink
 afetch
 bat
 cascadia-mono-nf-fonts
+keepassxc
 
 ")
 
@@ -34,6 +35,8 @@ rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim/lazy/
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
+wget https://raw.githubusercontent.com/ShogoXY/fedora/main/5VUhtaY.jpeg -O niebo.jpeg
+
 #curl -OL https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v6.1.0-2/fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm
 #sudo dnf install fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm -y
 #rm fedora-41-displaylink-1.14.7-4.github_evdi.x86_64.rpm
@@ -52,7 +55,7 @@ then
     packages_gnome=$(printf "
     flameshot
     ")
-    wget https://raw.githubusercontent.com/ShogoXY/fedora/main/5VUhtaY.jpeg
+    wget https://raw.githubusercontent.com/ShogoXY/fedora/main/5VUhtaY.jpeg -O niebo.jpeg
     gsettings get org.gnome.desktop.background picture-uri 'file://$HOME/5VUhtaY.jpeg'
     gsettings get org.gnome.desktop.background picture-uri-dark 'file://$HOME/5VUhtaY.jpeg'
 
@@ -68,7 +71,7 @@ then
 
     flatpak install flathub com.mattjakeman.ExtensionManager -y
     echo "udalosie"
-    rm $HOME/5VUhtaY.jpg 
+    #rm $HOME/5VUhtaY.jpg 
     sleep 5
 fi
 
@@ -94,7 +97,7 @@ echo "afetch" >> ~/.bashrc
 
 
 echo ""
-echo "Installation Complete"
+echo "Installation Complete for $DESKTOP_SESSION "
 echo "DONE!!"
 echo ""
 
