@@ -55,6 +55,14 @@ then
     wget https://raw.githubusercontent.com/ShogoXY/fedora/main/5VUhtaY.jpeg
     gsettings get org.gnome.desktop.background picture-uri 'file://$HOME/5VUhtaY.jpeg'
     gsettings get org.gnome.desktop.background picture-uri-dark 'file://$HOME/5VUhtaY.jpeg'
+
+
+
+    #cat dump_1 | dconf load /org/gnome/settings-daemon/plugins/media-keys/
+    #cat dump_2 | dconf load /org/gnome/desktop/wm/keybindings/
+    #cat dump_3 | dconf load /org/gnome/shell/keybindings/
+    #cat dump_4 | dconf load /org/gnome/mutter/keybindings/
+    #cat dump_5 | dconf load /org/gnome/mutter/wayland/keybindings/
    
     sudo dnf -y install $packages_gnome
 
