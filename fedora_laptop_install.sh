@@ -23,6 +23,7 @@ afetch
 bat
 cascadia-mono-nf-fonts
 keepassxc
+sshpass
 
 ")
 
@@ -73,7 +74,15 @@ then
     echo "udalosie"
     #rm $HOME/5VUhtaY.jpg 
     sleep 5
+else
+sshpass -p "test" rsync -avzh --info=progress2 -e ssh test@192.168.0.63:/nfsshare/dotfiles/. $HOME
+
 fi
+
+
+sshpass -p "test" rsync -avzh --info=progress2 -e ssh test@192.168.0.63:/nfsshare/Nowy_katalog/thunderbird/. $HOME/.thunderbird/to_copy
+
+
 
 flatpak install flathub com.github.tchx84.Flatseal -y
 flatpak install flathub com.spotify.Client -y
