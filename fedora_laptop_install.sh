@@ -24,6 +24,8 @@ bat
 cascadia-mono-nf-fonts
 keepassxc
 sshpass
+dejavu-sans-fonts
+dejavu-sans-mono-fonts
 
 ")
 
@@ -75,12 +77,12 @@ then
     #rm $HOME/5VUhtaY.jpg 
     sleep 5
 else
-sshpass -p "test" rsync -avzh --info=progress2 -e ssh test@192.168.0.63:/nfsshare/dotfiles/. $HOME
+#sshpass -p "test" rsync -avzh --info=progress2 -e ssh test@192.168.0.63:/nfsshare/dotfiles/. $HOME
 
 fi
 
 
-sshpass -p "test" rsync -avzh --info=progress2 -e ssh test@192.168.0.63:/nfsshare/Nowy_katalog/thunderbird/. $HOME/.thunderbird/to_copy
+#sshpass -p "test" rsync -avzh --info=progress2 -e ssh test@192.168.0.63:/nfsshare/Nowy_katalog/thunderbird/. $HOME/.thunderbird/to_copy
 
 
 
