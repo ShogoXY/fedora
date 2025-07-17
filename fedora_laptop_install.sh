@@ -16,7 +16,7 @@ curl
 cabextract
 xorg-x11-font-utils
 fontconfig
-flameshot
+
 neovim
 displaylink
 afetch
