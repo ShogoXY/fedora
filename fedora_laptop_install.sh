@@ -77,7 +77,8 @@ then
     #rm $HOME/5VUhtaY.jpg 
     sleep 5
 else
-#sshpass -p "test" rsync -avzh --info=progress2 -e ssh test@192.168.0.63:/nfsshare/dotfiles/. $HOME
+    echo  "test"
+    #sshpass -p "test" rsync -avzh --info=progress2 -e ssh test@192.168.0.63:/nfsshare/dotfiles/. $HOME
 
 fi
 
