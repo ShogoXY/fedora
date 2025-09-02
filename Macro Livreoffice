@@ -1,0 +1,90 @@
+
+Sub LAPTOP
+
+    Dim oSheet As Object
+    Dim oCell As Object
+    Dim startRow As Long
+    Dim col As Long
+    Dim i As Long
+    Dim currentRow As Long
+    Dim cellValue As Variant
+    Dim formulaStr As String
+    Dim cellValueStr As String
+
+    oSheet = ThisComponent.CurrentController.ActiveSheet
+
+    Dim oSelection As Object
+    oSelection = ThisComponent.CurrentSelection
+
+    If Not oSelection.supportsService("com.sun.star.sheet.SheetCell") And _
+       Not oSelection.supportsService("com.sun.star.sheet.SheetCellRange") Then
+        MsgBox "Proszę zaznaczyć komórkę lub zakres."
+        Exit Sub
+    End If
+
+    If oSelection.supportsService("com.sun.star.sheet.SheetCell") Then
+        startRow = oSelection.CellAddress.Row
+        col = oSelection.CellAddress.Column
+    ElseIf oSelection.supportsService("com.sun.star.sheet.SheetCellRange") Then
+        startRow = oSelection.RangeAddress.StartRow
+        col = oSelection.RangeAddress.StartColumn
+    Else
+        MsgBox "Niepoprawne zaznaczenie."
+        Exit Sub
+    End If
+
+    i = startRow
+    Do
+        oCell = oSheet.getCellByPosition(col, i)
+
+        If oCell.String = "" And oCell.Value = 0 Then Exit Do
+
+        currentRow = i + 1
+
+        cellValue = oCell.Value
+
+        If IsNumeric(cellValue) And cellValue <> 0 Then
+            ' Konwertujemy liczbę na tekst z kropką jako separatorem dziesiętnym
+            cellValueStr = Replace(Format(cellValue, "0.#########"), ",", ".")
+            formulaStr = "=usd*C" & currentRow & "*" & cellValueStr
+        ElseIf oCell.String <> "" Then
+            Dim cellText As String
+            cellText = oCell.String
+            cellText = Replace(cellText, """", """""")
+            formulaStr = "=usd*C" & currentRow & "*" & """" & cellText & """"
+        Else
+            Exit Do
+        End If
+
+        oCell.Formula = formulaStr
+
+        i = i + 1
+    Loop
+End Sub
+
+
+
+
+Sub swap_values()
+
+	doc = ThisComponent
+	sel = doc.CurrentSelection
+	
+	If sel(0).ImplementationName = "ScCellObj" Then
+		c1 = sel(0)
+		c2 = sel(1)
+	Else
+		If sel(0).Columns.Count = 2 Then
+			c1 = sel(0).getCellByPosition(0,0)
+			c2 = sel(0).getCellByPosition(1,0)
+		Else
+			c1 = sel(0).getCellByPosition(0,0)
+			c2 = sel(0).getCellByPosition(0,1)		
+		End If
+	End If
+	
+	tmp = c1.String
+	c1.String = c2.String
+	c2.String = tmp
+
+End Sub
